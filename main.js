@@ -12,33 +12,7 @@
     loop: true
   });
 
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const button = this.querySelector('.submit-btn');
-        const originalText = button.innerHTML;
-        
-        // Show loading state
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
-        button.disabled = true;
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=darshanjbdvt24@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        window.open(gmailLink, '_blank');
-        
-        setTimeout(() => {
-            showNotification('✅ Redirected to Gmail!', 'success');
-            document.getElementById('contactForm').reset();
-            button.innerHTML = originalText;
-            button.disabled = false;
-        }, 1000);
-    });
 
     // Notification function
     function showNotification(message, type) {
