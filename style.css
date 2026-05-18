@@ -335,7 +335,6 @@ body {
   align-items: center;
   box-shadow: 0 0 30px rgba(52, 203, 245, 0.4), 0 0 60px rgba(52, 203, 245, 0.2);
   overflow: hidden;
-  animation: floatAvatar 6s ease-in-out infinite;
 }
 
 .home-img .img-box::before {
@@ -374,20 +373,6 @@ body {
 @keyframes spinGradient {
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes floatAvatar {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-
-  100% {
-    transform: translateY(0px);
   }
 }
 
