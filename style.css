@@ -1,13 +1,60 @@
+:root {
+  --primary-dark: #120524;
+  --primary: #330d76;
+  --neon-cyan: rgb(52, 203, 245);
+  --neon-purple: #6c63ff;
+  --neon-pink: #ff6584;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
+  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-cyan));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--neon-cyan);
+}
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(52, 203, 245, 0.8);
+}
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
 }
 
 body {
   color: antiquewhite;
+  background: radial-gradient(circle at top right, #240a54 0%, var(--primary-dark) 40%, #0d021c 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .header {
@@ -89,9 +136,7 @@ body {
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background-color: #330d76;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
   display: flex;
   align-items: center;
   padding: 70px 10% 0;
@@ -402,9 +447,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   align-items: center;
-  background-color: #330d76;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
   padding: 20px 10px;
   justify-content: center;
 }
@@ -459,8 +502,7 @@ body {
 .skill {
   width: 100%;
   height: 100vh;
-  background-color: #330d76;
-  background-position: center;
+  background: transparent;
   padding: 70px 10% 0;
   display: inline-block;
   justify-content: center;
@@ -517,9 +559,7 @@ body {
 
 .portfolio {
   padding: 30px 0px;
-  background-color: #330d76;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
 }
 
 .section-title {
@@ -578,7 +618,8 @@ body {
 
 .project-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(108, 99, 255, 0.3);
+  border-color: rgba(108, 99, 255, 0.4);
 }
 
 .project-card::before {
@@ -767,7 +808,7 @@ body {
 
 .contact {
   padding: 80px 0;
-  background: #330d76;
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -779,7 +820,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #330d76;
+  background: transparent;
 }
 
 .section-title {

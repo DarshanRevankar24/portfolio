@@ -190,4 +190,39 @@ window.addEventListener('scroll', function() {
             link.classList.add('active');
         }
     });
+    });
+});
+
+// Custom Cursor Logic
+const cursorDot = document.querySelector("[data-cursor-dot]");
+const cursorOutline = document.querySelector("[data-cursor-outline]");
+
+window.addEventListener("mousemove", function (e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Add a slight delay/smoothness to the outline
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Add hover effect to interactive elements
+const interactables = document.querySelectorAll('a, button, .project-card, .contact-card, .social-link');
+interactables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.backgroundColor = 'rgba(52, 203, 245, 0.1)';
+        cursorOutline.style.borderColor = 'rgba(52, 203, 245, 0.5)';
+    });
+    
+    el.addEventListener('mouseleave', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.backgroundColor = 'transparent';
+        cursorOutline.style.borderColor = 'rgba(52, 203, 245, 0.8)';
+    });
 });
