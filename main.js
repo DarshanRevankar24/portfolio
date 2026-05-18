@@ -19,48 +19,25 @@
         const originalText = button.innerHTML;
         
         // Show loading state
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
         button.disabled = true;
 
-        // Create FormData object to get all form values
-        const formData = new FormData(this);
-        
-        // Add FormSubmit parameters
-        formData.append('_subject', 'New Message from Portfolio - Darshan J');
-        formData.append('_captcha', 'false');
-        formData.append('_template', 'table');
-        
-        // Convert FormData to URL encoded string
-        const urlEncodedData = new URLSearchParams(formData).toString();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-        // Send to FormSubmit using fetch API with proper format
-        fetch('https://formsubmit.co/ajax/darshanjbdvt24@gmail.com', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: urlEncodedData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success === "true") {
-                // Show success notification
-                showNotification('✅ Message sent successfully! I will get back to you soon.', 'success');
-                document.getElementById('contactForm').reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(error => {
-            // Show error notification
-            showNotification('❌ Failed to send message. Please try again or email me directly.', 'error');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            // Reset button state
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=darshanjbdvt24@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        window.open(gmailLink, '_blank');
+        
+        setTimeout(() => {
+            showNotification('✅ Redirected to Gmail!', 'success');
+            document.getElementById('contactForm').reset();
             button.innerHTML = originalText;
             button.disabled = false;
-        });
+        }, 1000);
     });
 
     // Notification function
