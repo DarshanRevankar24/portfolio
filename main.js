@@ -190,7 +190,6 @@ window.addEventListener('scroll', function() {
             link.classList.add('active');
         }
     });
-    });
 });
 
 // Custom Cursor Logic
