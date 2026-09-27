@@ -580,9 +580,15 @@ body {
   text-shadow: 0 0 10px, 0 0 20px;
 }
 
-.portfolio {
+.portfolio, .contact {
   padding: 30px 0px;
-  background: transparent;
+  background-color: var(--bg-base);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 41, 59, 0.7), transparent),
+    radial-gradient(ellipse 80% 50% at 50% 120%, rgba(15, 23, 42, 0.7), transparent);
+  background-attachment: fixed;
+  position: relative;
+  z-index: 10;
 }
 
 .section-title {
