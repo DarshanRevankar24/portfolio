@@ -1,6 +1,7 @@
 :root {
-  --primary-dark: #120524;
-  --primary: #330d76;
+  --bg-base: #100620;
+  --primary-dark: #190934;
+  --primary: #4515a0;
   --neon-cyan: rgb(52, 203, 245);
   --neon-purple: #6c63ff;
   --neon-pink: #ff6584;
@@ -52,7 +53,12 @@
 
 body {
   color: #ffffff;
-  background: radial-gradient(circle at top right, #240a54 0%, var(--primary-dark) 40%, #0d021c 100%);
+  background: 
+    radial-gradient(circle at 15% 0%, rgba(69, 21, 160, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 90% 15%, rgba(108, 99, 255, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(52, 203, 245, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(255, 101, 132, 0.1) 0%, transparent 40%),
+    var(--bg-base);
   background-attachment: fixed;
   min-height: 100vh;
 }
