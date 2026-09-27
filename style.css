@@ -371,6 +371,9 @@ body {
 }
 
 .home-img {
+  position: fixed;
+  right: 8%;
+  top: 25%;
   width: 450px;
   height: 450px;
   display: flex;
@@ -379,6 +382,7 @@ body {
   opacity: 0;
   animation: slideleft 1s ease forwards;
   animation-delay: 0.5s;
+  z-index: -1;
 }
 
 .home-img .img-box {
@@ -442,9 +446,13 @@ body {
   }
 
   .home-img {
+    position: relative;
+    right: auto;
+    top: auto;
     width: 300px;
     height: 300px;
     margin-top: 50px;
+    z-index: 1;
   }
 
   .home-img .img-box {
